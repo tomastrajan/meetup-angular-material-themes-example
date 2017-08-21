@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import './themes/my-theme';
+@import './themes/my-second-theme';
+
+@import './app/example/parent/parent.component.scss-theme';
+
+@mixin my-custom-components($theme) {
+  @include amte-parent-theme($theme);
+  /* ... */
+}
+
+.my-theme {
+  @include angular-material-theme($my-theme);
+  @include my-custom-components($my-theme);
+}
+
+.my-second-theme {
+  @include angular-material-theme($my-second-theme);
+  @include my-custom-components($my-second-theme);
+}
